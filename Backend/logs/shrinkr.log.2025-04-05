@@ -1,0 +1,13 @@
+[2025-04-05 20:51:44] [INFO] [test_logger.py:<module>():3] This is an info log.
+[2025-04-05 20:51:44] [WARNING] [test_logger.py:<module>():4] This is a warning log.
+[2025-04-05 20:51:44] [ERROR] [test_logger.py:<module>():5] This is an error log.
+[2025-04-05 20:52:11] [INFO] [init_db.py:init():13] ✅ Tables created.
+[2025-04-05 20:52:11] [INFO] [init_db.py:init():21] 🙋 Test user created: ID=1, Email=test@example.com
+[2025-04-05 21:44:38] [INFO] [init_db.py:init():13] ✅ Tables created.
+[2025-04-05 21:44:38] [INFO] [init_db.py:init():21] 🙋 Test user created: ID=1, Email=test@example.com
+[2025-04-05 22:32:03] [INFO] [main.py:root():15] Root pinged ✅
+[2025-04-05 22:47:07] [INFO] [routes.py:register_user():28] 🆕 Registered user: ankit@shrinkr.dev
+[2025-04-05 22:53:46] [INFO] [routes.py:register_user():28] 🆕 Registered user: it@shrinkr.dev
+[2025-04-05 22:53:55] [INFO] [routes.py:register_user():28] 🆕 Registered user: ikitt@shrinkr.dev
+[2025-04-05 23:01:42] [INFO] [main.py:root():15] Root pinged ✅
+[2025-04-05 23:31:15] [INFO] [routes.py:login_user():46] ✅ Logged in: ankit@shrinkr.dev

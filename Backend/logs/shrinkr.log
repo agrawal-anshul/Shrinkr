@@ -1,0 +1,5 @@
+[2025-04-07 19:55:01] [INFO] [routes.py:login_user():46] ✅ Logged in: ankit@shrinkr.dev
+[2025-04-07 20:00:16] [INFO] [routes.py:register_user():29] 🆕 Registered user: user@example.com
+[2025-04-07 20:00:53] [INFO] [routes.py:login_user():46] ✅ Logged in: user@example.com
+[2025-04-07 20:08:29] [INFO] [main.py:root():25] Root pinged ✅
+[2025-04-07 20:09:05] [INFO] [routes.py:login_user():46] ✅ Logged in: ankit@shrinkr.dev
