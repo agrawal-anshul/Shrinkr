@@ -1,16 +1,15 @@
-import aioredis
+from redis.asyncio import Redis
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
 redis = None
 
 async def get_redis():
     global redis
     if redis is None:
-        redis = await aioredis.from_url(REDIS_URL, encoding="utf8", decode_responses=True)
+        redis = Redis.from_url(REDIS_URL, decode_responses=True)
     return redis
 
 async def get_cached_url(short_code: str) -> str:

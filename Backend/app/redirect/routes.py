@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request, Depends, HTTPException
 from fastapi.responses import RedirectResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from datetime import datetime
+from datetime import datetime, timezone
 
 from app.db import models
 from app.db.database import async_session
@@ -32,7 +32,7 @@ async def redirect_to_original(
         raise HTTPException(status_code=404, detail="Short URL not found")
 
     # Check if expired
-    if url.expires_at and url.expires_at < datetime.utcnow():
+    if url.expires_at and url.expires_at < datetime.now(timezone.utc):
         raise HTTPException(status_code=410, detail="This short URL has expired")
 
     # Check click limit

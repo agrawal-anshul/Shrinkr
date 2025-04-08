@@ -20,14 +20,14 @@ class UserOut(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # -------------------------------
 # URL Schemas
 # -------------------------------
 
 class URLBase(BaseModel):
-    original_url: HttpUrl
+    original_url: str
     custom_alias: Optional[str] = None
     expires_at: Optional[datetime] = None
     click_limit: Optional[int] = None
@@ -38,13 +38,13 @@ class URLCreate(URLBase):
 class URLResponse(BaseModel):
     id: int
     short_code: str
-    original_url: HttpUrl
+    original_url: str
     created_at: datetime
     expires_at: Optional[datetime]
     click_count: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # -------------------------------
 # Click Log Schema
@@ -57,4 +57,4 @@ class ClickLogResponse(BaseModel):
     referrer: Optional[str]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
