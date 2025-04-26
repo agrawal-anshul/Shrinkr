@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from app.db import models, schemas
-from app.db.database import async_session
+from app.db.database import get_async_session
 from app.auth.utils import hash_password, verify_password
 from app.auth.tokens import create_access_token
 from app.core.logger import logger
@@ -10,8 +10,8 @@ from fastapi.security import OAuth2PasswordRequestForm
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
-@router.post("/register", response_model=schemas.UserOut)
-async def register_user(user_data: schemas.UserCreate, db: AsyncSession = Depends(async_session)):
+@router.post("/register", response_model=schemas.TokenResponse)
+async def register_user(user_data: schemas.UserCreate, db: AsyncSession = Depends(get_async_session)):
     # Check if user already exists
     result = await db.execute(select(models.User).where(models.User.email == user_data.email))
     existing_user = result.scalar_one_or_none()
@@ -26,14 +26,20 @@ async def register_user(user_data: schemas.UserCreate, db: AsyncSession = Depend
     await db.commit()
     await db.refresh(new_user)
 
+    # Generate access token
+    access_token = create_access_token(data={"sub": str(new_user.id)})
+
     logger.info(f"🆕 Registered user: {new_user.email}")
-    return new_user
+    return {
+        "access_token": access_token,
+        "token_type": "bearer"
+    }
 
 
 @router.post("/login")
 async def login_user(
     form_data: OAuth2PasswordRequestForm = Depends(),
-    db: AsyncSession = Depends(async_session),
+    db: AsyncSession = Depends(get_async_session),
 ):
     result = await db.execute(select(models.User).where(models.User.email == form_data.username))
     user = result.scalar_one_or_none()

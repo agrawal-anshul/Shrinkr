@@ -11,6 +11,9 @@ async_session_factory = sessionmaker(
 )
 
 # Dependency for FastAPI
-async def async_session() -> AsyncSession:
-    async with async_session_factory() as session:
+async def get_async_session() -> AsyncSession:
+    session = async_session_factory()
+    try:
         yield session
+    finally:
+        await session.close()

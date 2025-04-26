@@ -73,3 +73,40 @@ pgdata/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Ignore logs
+# Log files
+*.log
+log/
+logs/
+logging/
+*.logs
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# System generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Dependencies and build artifacts
+node_modules/
+dist/
+build/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
