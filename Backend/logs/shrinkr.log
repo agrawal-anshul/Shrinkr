@@ -6,3 +6,64 @@
 [2025-04-08 20:00:23] [INFO] [routes.py:login_user():46] ✅ Logged in: ankit@shrinkr.dev
 [2025-04-08 20:25:40] [INFO] [routes.py:redirect_to_original():57] 🔁 Redirected /a → https://example2.com/
 [2025-04-08 20:28:34] [INFO] [main.py:root():26] Root pinged ✅
+[2025-04-26 18:41:03] [INFO] [main.py:root():26] Root pinged ✅
+[2025-04-26 18:41:13] [INFO] [routes.py:login_user():52] ✅ Logged in: user@example.com
+[2025-04-26 18:41:38] [INFO] [routes.py:login_user():52] ✅ Logged in: user@example.com
+[2025-04-26 18:42:06] [INFO] [routes.py:redirect_to_original():57] 🔁 Redirected /a → https://www.youtube.com/watch?v=1iJ34tTjwwo&ab_channel=HarkiratSingh
+[2025-04-26 19:09:32] [INFO] [routes.py:login_user():52] ✅ Logged in: user@example.com
+[2025-04-26 19:10:39] [INFO] [main.py:startup_event():27] ✅ Database migrations completed
+[2025-04-26 19:12:16] [INFO] [main.py:startup_event():27] ✅ Database migrations completed
+[2025-04-26 19:13:07] [INFO] [main.py:startup_event():27] ✅ Database migrations completed
+[2025-04-26 19:16:22] [INFO] [main.py:startup_event():27] ✅ Database migrations completed
+[2025-04-26 19:16:36] [INFO] [routes.py:generate_qr_code():259] 📱 Generated QR code for URL: a
+[2025-04-26 19:22:46] [INFO] [main.py:startup_event():27] ✅ Database migrations completed
+[2025-04-26 19:23:10] [INFO] [main.py:startup_event():27] ✅ Database migrations completed
+[2025-04-26 19:23:32] [INFO] [main.py:startup_event():27] ✅ Database migrations completed
+[2025-04-26 19:23:58] [INFO] [main.py:startup_event():27] ✅ Database migrations completed
+[2025-04-26 19:24:19] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:24:36] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:25:33] [INFO] [routes.py:login_user():90] ✅ Logged in: user@example.com
+[2025-04-26 19:27:08] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:27:36] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:28:02] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:29:09] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:29:52] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:30:22] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:30:52] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:30:52] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:31:16] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:31:16] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:32:04] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:32:04] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:32:06] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:32:07] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:32:36] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:32:36] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:33:00] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:33:01] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:33:30] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:33:30] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:33:31] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:33:31] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:34:08] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:34:09] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:34:23] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 19:34:23] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 19:36:55] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: a
+[2025-04-26 19:37:25] [INFO] [redis_handler.py:get_redis():18] ✅ Redis connection established
+[2025-04-26 19:37:25] [INFO] [routes.py:delete_url():480] 🗑️ Deleted URL: abcd for user: user@example.com
+[2025-04-26 19:39:41] [INFO] [routes.py:create_short_url():127] 🔗 Created short URL: 123 for user: user@example.com
+[2025-04-26 19:40:14] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: 123
+[2025-04-26 19:40:34] [INFO] [routes.py:redirect_to_original():146] 🔁 Redirected /123 → https://www.instahyre.com/login/?next=/candidate/opportunities/%3Fmatching%3Dtrue
+[2025-04-26 19:40:48] [INFO] [routes.py:redirect_to_original():61] ⚡ Cache hit: 123
+[2025-04-26 19:41:02] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: 123
+[2025-04-26 19:41:15] [INFO] [routes.py:redirect_to_original():61] ⚡ Cache hit: 123
+[2025-04-26 19:41:18] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: 123
+[2025-04-26 19:41:21] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: 123
+[2025-04-26 21:24:25] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-26 21:24:29] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-26 21:24:38] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-26 21:33:32] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-26 21:33:48] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-26 21:47:46] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-26 21:47:46] [INFO] [main.py:startup_event():69] ✅ Database migrations completed

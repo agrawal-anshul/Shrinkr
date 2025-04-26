@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <div class="toolbar-left">
+    <a routerLink="/" class="logo">
+      <span class="logo-text">Shrinkr</span>
+    </a>
+  </div>
+  
+  <div class="spacer"></div>
+  
+  <div class="toolbar-right">
+    <!-- Links for logged out users -->
+    @if (!authService.isLoggedIn()) {
+      <a mat-button routerLink="/login">Login</a>
+      <a mat-button routerLink="/register">Register</a>
+    }
+    
+    <!-- Links for logged in users -->
+    @if (authService.isLoggedIn()) {
+      <a mat-button routerLink="/dashboard">Dashboard</a>
+      <a mat-button routerLink="/urls">My URLs</a>
+      <a mat-button routerLink="/urls/create">Create URL</a>
+      
+      <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      
+      <mat-menu #userMenu="matMenu">
+        <span class="user-email" mat-menu-item disabled>
+          @if (authService.currentUser(); as user) {
+            {{ user.email }}
+          }
+        </span>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    }
+  </div>
+</mat-toolbar>

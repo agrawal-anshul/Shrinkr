@@ -1,0 +1,19 @@
+.dialog-header {
+  display: flex;
+  align-items: center;
+  
+  &.danger {
+    color: #f44336;
+  }
+}
+
+.dialog-content {
+  min-width: 300px;
+  margin: 16px 0;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+} 

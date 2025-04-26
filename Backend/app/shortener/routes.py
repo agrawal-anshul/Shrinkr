@@ -2,16 +2,17 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from app.db import models, schemas
-from app.db.database import async_session
+from app.db.database import get_async_session
 from app.auth.tokens import get_current_user
 from app.shortener import utils as shortener_utils
+from app.core.logger import logger
 
-router = APIRouter(prefix="/shorten", tags=["Shortener"])
+router = APIRouter(prefix="/shortener", tags=["URL Shortener"])
 
-@router.post("/", response_model=schemas.URLResponse)
+@router.post("/create")
 async def create_short_url(
     url_data: schemas.URLCreate,
-    db: AsyncSession = Depends(async_session),
+    db: AsyncSession = Depends(get_async_session),
     current_user: models.User = Depends(get_current_user)
 ):
     # Use custom alias or generate random short code

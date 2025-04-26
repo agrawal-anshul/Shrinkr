@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, DateTime, JSON, Boolean
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import declarative_base
@@ -27,6 +27,7 @@ class URL(Base):
     expires_at = Column(DateTime(timezone=True), nullable=True)
     click_limit = Column(Integer, nullable=True)
     click_count = Column(Integer, default=0)
+    tags = Column(JSON, nullable=True)  # Store URL tags/categories
 
     owner = relationship("User", back_populates="urls")
     clicks = relationship("ClickLog", back_populates="url")
@@ -41,6 +42,13 @@ class ClickLog(Base):
     ip_address = Column(String(45), nullable=True)
     user_agent = Column(Text, nullable=True)
     referrer = Column(Text, nullable=True)
+    country = Column(String(2), nullable=True)
+    city = Column(String(100), nullable=True)
+    device_type = Column(String(50), nullable=True)
+    browser = Column(String(50), nullable=True)
+    os = Column(String(50), nullable=True)
+    is_mobile = Column(Boolean, default=False)
+    is_bot = Column(Boolean, default=False)
 
     url = relationship("URL", back_populates="clicks")
 

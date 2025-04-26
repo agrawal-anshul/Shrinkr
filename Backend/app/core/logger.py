@@ -1,7 +1,7 @@
 import logging
 import sys
 import os
-from logging.handlers import TimedRotatingFileHandler
+from logging.handlers import RotatingFileHandler
 from app.core.config import settings
 
 # Color codes for terminal (reset-safe)
@@ -29,30 +29,26 @@ LOG_DIR = "logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 LOG_FILE_PATH = os.path.join(LOG_DIR, "shrinkr.log")
 
-# Daily Rotating File Handler
-file_handler = TimedRotatingFileHandler(
-    LOG_FILE_PATH, when="midnight", interval=1, backupCount=30, encoding="utf-8"
-)
-file_handler.suffix = "%Y-%m-%d"
-
-# Console Stream Handler
-console_handler = logging.StreamHandler(sys.stdout)
-
-# Formatters
-console_formatter = logging.Formatter(COLOR_FORMAT, datefmt="%Y-%m-%d %H:%M:%S")
-file_formatter = logging.Formatter(PLAIN_FORMAT, datefmt="%Y-%m-%d %H:%M:%S")
-
-console_handler.setFormatter(console_formatter)
-file_handler.setFormatter(file_formatter)
-
-# Set logging level from environment
-log_level = logging.DEBUG if settings.environment == "development" else logging.INFO
-console_handler.setLevel(log_level)
-file_handler.setLevel(log_level)
-
-# Configure logger
+# Configure logging
 logger = logging.getLogger("shrinkr")
-logger.setLevel(log_level)
+logger.setLevel(logging.DEBUG if settings.ENVIRONMENT == "development" else logging.INFO)
+
+# Console handler
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setLevel(logging.DEBUG)
+console_format = logging.Formatter(COLOR_FORMAT, datefmt="%Y-%m-%d %H:%M:%S")
+console_handler.setFormatter(console_format)
 logger.addHandler(console_handler)
+
+# File handler
+file_handler = RotatingFileHandler(
+    LOG_FILE_PATH,
+    maxBytes=1024 * 1024,  # 1MB
+    backupCount=5
+)
+file_handler.setLevel(logging.INFO)
+file_format = logging.Formatter(PLAIN_FORMAT, datefmt="%Y-%m-%d %H:%M:%S")
+file_handler.setFormatter(file_format)
 logger.addHandler(file_handler)
+
 logger.propagate = False
