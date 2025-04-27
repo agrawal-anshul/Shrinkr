@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Create New URL</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Original URL</mat-label>
+    <input matInput [(ngModel)]="originalUrl" placeholder="https://example.com/long-url" />
+    <mat-hint>Enter the URL you want to shorten</mat-hint>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()" [disabled]="isSubmitting">Cancel</button>
+  <button 
+    mat-raised-button 
+    color="primary" 
+    (click)="createUrl()" 
+    [disabled]="!originalUrl || isSubmitting">
+    <mat-spinner *ngIf="isSubmitting" diameter="20" class="spinner"></mat-spinner>
+    <span *ngIf="!isSubmitting">Create</span>
+  </button>
+</mat-dialog-actions>

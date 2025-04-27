@@ -101,6 +101,46 @@ mat-card-content p {
   line-height: 1.5;
 }
 
+mat-card-actions {
+  margin-top: auto;
+  padding: 16px 0 8px;
+}
+
+.try-it-section {
+  background-color: #f5f5f5;
+  padding: 48px 16px;
+  border-radius: 8px;
+  margin-bottom: 32px;
+}
+
+.try-it-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 24px;
+  }
+}
+
+.try-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  
+  a {
+    padding: 8px 24px;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .hero-title {
@@ -113,5 +153,23 @@ mat-card-content p {
 
   .features-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .try-it-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .try-it-content p {
+    font-size: 1rem;
+  }
+  
+  .try-buttons {
+    flex-direction: column;
+    align-items: center;
+    
+    a {
+      width: 100%;
+      max-width: 300px;
+    }
   }
 }

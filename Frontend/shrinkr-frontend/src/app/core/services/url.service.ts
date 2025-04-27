@@ -188,9 +188,8 @@ export class UrlService {
   }
 
   getFullShortenedUrl(shortCode: string): string {
-    // Use window.location to get the base URL or use environment config
-    const baseUrl = environment.redirectBaseUrl || `${window.location.protocol}//${window.location.host}/redirect/`;
-    return `${baseUrl}${shortCode}`;
+    // Simply use the redirectBaseUrl from environment
+    return `${environment.redirectBaseUrl}${shortCode}`;
   }
   
   // Helper method to find a URL by short code

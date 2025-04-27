@@ -1,0 +1,19 @@
+.full-width {
+  width: 100%;
+  min-width: 300px;
+}
+
+.spinner {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+mat-dialog-content {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+mat-dialog-actions {
+  padding: 16px 0;
+}

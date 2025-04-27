@@ -20,6 +20,9 @@
         <mat-card-content>
           <p>Transform long, complex URLs into short, memorable links in seconds.</p>
         </mat-card-content>
+        <mat-card-actions>
+          <a mat-button color="primary" routerLink="/urls/create">Create URL</a>
+        </mat-card-actions>
       </mat-card>
       
       <mat-card class="feature-card">
@@ -28,6 +31,9 @@
         <mat-card-content>
           <p>Track clicks, geographic data, devices, and more with real-time analytics.</p>
         </mat-card-content>
+        <mat-card-actions>
+          <a mat-button color="primary" routerLink="/urls">View Analytics</a>
+        </mat-card-actions>
       </mat-card>
       
       <mat-card class="feature-card">
@@ -36,6 +42,9 @@
         <mat-card-content>
           <p>Generate QR codes for your shortened links to use in print or digital media.</p>
         </mat-card-content>
+        <mat-card-actions>
+          <a mat-button color="primary" routerLink="/urls">Generate QR Code</a>
+        </mat-card-actions>
       </mat-card>
       
       <mat-card class="feature-card">
@@ -44,7 +53,21 @@
         <mat-card-content>
           <p>Enterprise-grade security and 99.9% uptime for all your links.</p>
         </mat-card-content>
+        <mat-card-actions>
+          <a mat-button color="primary" routerLink="/dashboard">View Dashboard</a>
+        </mat-card-actions>
       </mat-card>
+    </div>
+  </section>
+
+  <section class="try-it-section">
+    <div class="try-it-content">
+      <h2>Try Shrinkr Now</h2>
+      <p>Start shortening and tracking your links today with our easy-to-use platform.</p>
+      <div class="try-buttons">
+        <a mat-raised-button color="primary" routerLink="/urls/create">Create Your First Link</a>
+        <a mat-stroked-button routerLink="/dashboard">View Dashboard</a>
+      </div>
     </div>
   </section>
 </div>

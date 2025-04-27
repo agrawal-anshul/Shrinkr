@@ -67,3 +67,73 @@
 [2025-04-26 21:33:48] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
 [2025-04-26 21:47:46] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
 [2025-04-26 21:47:46] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-26 21:51:25] [WARNING] [routes.py:login_user():138] 🔒 Failed login attempt for: anshul47.1002@gmail.com from 192.168.65.1
+[2025-04-27 13:41:16] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 13:41:16] [INFO] [main.py:startup_event():69] ✅ Database migrations completed
+[2025-04-27 14:11:54] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-27 14:29:31] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:29:31] [INFO] [main.py:startup_event():72] ✅ Database migrations completed
+[2025-04-27 14:29:33] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:29:33] [INFO] [main.py:startup_event():83] ✅ Database migrations completed
+[2025-04-27 14:29:37] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:29:42] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:29:52] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:29:52] [INFO] [main.py:startup_event():76] ✅ Database migrations completed
+[2025-04-27 14:29:59] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:29:59] [INFO] [main.py:startup_event():71] ✅ Database migrations completed
+[2025-04-27 14:30:03] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:30:03] [INFO] [main.py:startup_event():78] ✅ Database migrations completed
+[2025-04-27 14:30:04] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:30:05] [INFO] [main.py:startup_event():79] ✅ Database migrations completed
+[2025-04-27 14:30:22] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:30:22] [INFO] [main.py:startup_event():79] ✅ Database migrations completed
+[2025-04-27 14:32:20] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:32:20] [INFO] [main.py:startup_event():79] ✅ Database migrations completed
+[2025-04-27 14:32:22] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:32:22] [INFO] [main.py:startup_event():79] ✅ Database migrations completed
+[2025-04-27 14:33:42] [INFO] [main.py:root():94] Root pinged ✅
+[2025-04-27 14:33:42] [INFO] [redis_handler.py:get_redis():18] ✅ Redis connection established
+[2025-04-27 14:33:42] [WARNING] [routes.py:redirect_to_original():70] 🔍 Short URL not found: favicon.ico
+[2025-04-27 14:34:08] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-27 14:41:48] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-27 14:42:14] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: a
+[2025-04-27 14:42:14] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: a
+[2025-04-27 14:42:33] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: 123
+[2025-04-27 14:42:33] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: 123
+[2025-04-27 14:42:37] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: 123
+[2025-04-27 14:42:38] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: 123
+[2025-04-27 14:42:40] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: 123
+[2025-04-27 14:43:41] [INFO] [routes.py:create_short_url():127] 🔗 Created short URL: SjszLR for user: user@example.com
+[2025-04-27 14:43:47] [INFO] [routes.py:create_short_url():127] 🔗 Created short URL: RZFLpx for user: user@example.com
+[2025-04-27 14:44:01] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: RZFLpx
+[2025-04-27 14:44:01] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: RZFLpx
+[2025-04-27 14:45:08] [INFO] [routes.py:redirect_to_original():146] 🔁 Redirected /RZFLpx → https://www.hackerrank.com/test/63ek10mhil5/questions/441b2jdokl1
+[2025-04-27 14:46:55] [INFO] [routes.py:redirect_to_original():61] ⚡ Cache hit: RZFLpx
+[2025-04-27 14:48:55] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: 123
+[2025-04-27 14:48:55] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: 123
+[2025-04-27 14:52:43] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: 123
+[2025-04-27 14:52:43] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: 123
+[2025-04-27 14:52:49] [INFO] [routes.py:redirect_to_original():61] ⚡ Cache hit: RZFLpx
+[2025-04-27 14:53:16] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: RZFLpx
+[2025-04-27 14:53:16] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: RZFLpx
+[2025-04-27 14:53:21] [INFO] [routes.py:redirect_to_original():61] ⚡ Cache hit: RZFLpx
+[2025-04-27 14:53:38] [WARNING] [rate_limiter.py:check_rate_limit():60] ⛔ Rate limit exceeded for 192.168.65.1: 16/10 requests
+[2025-04-27 14:53:38] [ERROR] [rate_limiter.py:check_rate_limit():82] ❌ Unexpected error in rate limiter: 429: {'error': 'Rate limit exceeded', 'reset_in_seconds': 3004, 'reset_at': '15:43:42', 'limit': 10, 'window_seconds': 3600}
+[2025-04-27 14:53:38] [INFO] [routes.py:export_analytics():146] 📥 Exported analytics for URL: RZFLpx
+[2025-04-27 14:53:39] [WARNING] [rate_limiter.py:check_rate_limit():60] ⛔ Rate limit exceeded for 192.168.65.1: 16/10 requests
+[2025-04-27 14:53:39] [ERROR] [rate_limiter.py:check_rate_limit():82] ❌ Unexpected error in rate limiter: 429: {'error': 'Rate limit exceeded', 'reset_in_seconds': 3003, 'reset_at': '15:43:42', 'limit': 10, 'window_seconds': 3600}
+[2025-04-27 14:53:39] [INFO] [routes.py:export_analytics():146] 📥 Exported analytics for URL: RZFLpx
+[2025-04-27 14:54:23] [WARNING] [rate_limiter.py:check_rate_limit():60] ⛔ Rate limit exceeded for 192.168.65.1: 22/10 requests
+[2025-04-27 14:54:23] [ERROR] [rate_limiter.py:check_rate_limit():82] ❌ Unexpected error in rate limiter: 429: {'error': 'Rate limit exceeded', 'reset_in_seconds': 2959, 'reset_at': '15:43:42', 'limit': 10, 'window_seconds': 60}
+[2025-04-27 14:54:23] [INFO] [routes.py:login_user():151] ✅ Logged in: user@example.com from 192.168.65.1
+[2025-04-27 14:55:41] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: RZFLpx
+[2025-04-27 14:55:41] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: RZFLpx
+[2025-04-27 14:56:06] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:56:07] [INFO] [main.py:startup_event():79] ✅ Database migrations completed
+[2025-04-27 14:56:10] [INFO] [rate_limiter.py:<module>():88] ✅ Rate limiter initialized successfully
+[2025-04-27 14:56:10] [INFO] [main.py:startup_event():79] ✅ Database migrations completed
+[2025-04-27 14:56:14] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: RZFLpx
+[2025-04-27 14:56:14] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: RZFLpx
+[2025-04-27 14:56:28] [INFO] [routes.py:create_short_url():127] 🔗 Created short URL: pELVpU for user: user@example.com
+[2025-04-27 14:56:30] [INFO] [routes.py:get_detailed_analytics():76] 📊 Generated detailed analytics for URL: pELVpU
+[2025-04-27 14:56:30] [INFO] [routes.py:generate_qr_code():570] 📱 Generated QR code for URL: pELVpU

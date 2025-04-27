@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from app.api.router import router as api_router
 from app.core.logger import logger
 from app.db.migrations import run_migrations
+from fastapi.middleware.cors import CORSMiddleware
 
 
 load_dotenv()  # loads .env file
@@ -13,6 +14,7 @@ load_dotenv()  # loads .env file
 python_path = os.getenv("PYTHONPATH")
 if python_path and python_path not in sys.path:
     sys.path.append(python_path)
+
 
 app = FastAPI(
     title="Shrinkr+",
@@ -55,6 +57,14 @@ app = FastAPI(
             "description": "Detailed analytics and statistics for shortened URLs"
         }
     ]
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:4200"],  # 👈 Your Angular frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.on_event("startup")

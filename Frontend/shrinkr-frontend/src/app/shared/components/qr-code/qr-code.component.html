@@ -1,0 +1,41 @@
+<mat-card class="qr-code-card">
+  <mat-card-header>
+    <mat-card-title>QR Code</mat-card-title>
+    <mat-card-subtitle>Scan to access your shortened URL</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+      <mat-spinner diameter="40"></mat-spinner>
+      <p>Generating QR code...</p>
+    </div>
+    
+    <!-- Error State -->
+    <div *ngIf="error && !isLoading" class="error-container">
+      <mat-icon color="warn">error</mat-icon>
+      <p>{{ error }}</p>
+      <button mat-raised-button color="primary" (click)="generateQrCode()">Try Again</button>
+    </div>
+    
+    <!-- QR Code Display -->
+    <div *ngIf="qrCodeUrl && !isLoading && !error" class="qr-code-container">
+      <img [src]="qrCodeUrl" alt="QR Code" class="qr-code-image">
+      
+      <div class="qr-controls">
+        <mat-form-field appearance="outline">
+          <mat-label>Size</mat-label>
+          <mat-select [(ngModel)]="selectedSize" (selectionChange)="onSizeChange()">
+            <mat-option *ngFor="let size of sizes" [value]="size.value">
+              {{ size.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <button mat-raised-button color="primary" (click)="downloadQrCode()">
+          <mat-icon>download</mat-icon> Download
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card> 

@@ -13,12 +13,12 @@ export const selectUrlEntities = createSelector(
   selectEntities
 );
 
-export const selectUrlLoading = createSelector(
+export const selectLoading = createSelector(
   selectUrlState,
   (state: URLState) => state.loading
 );
 
-export const selectUrlError = createSelector(
+export const selectError = createSelector(
   selectUrlState,
   (state: URLState) => state.error
 );
@@ -45,5 +45,5 @@ export const selectTotalUrls = createSelector(
 
 export const selectTotalClicks = createSelector(
   selectAllUrls,
-  (urls) => urls.reduce((total, url) => total + url.click_count, 0)
+  (urls) => urls.reduce((total, url) => total + (url.click_count || 0), 0)
 ); 

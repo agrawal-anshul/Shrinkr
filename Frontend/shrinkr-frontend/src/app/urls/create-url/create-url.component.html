@@ -1,1 +1,66 @@
-<p>create-url works!</p>
+<div class="create-url-container">
+  <mat-card class="create-url-card">
+    <mat-card-header>
+      <mat-card-title>Shorten a URL</mat-card-title>
+      <mat-card-subtitle>Create a new shortened URL with customization options</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <form [formGroup]="urlForm" (ngSubmit)="onSubmit()" class="url-form">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>URL to Shorten</mat-label>
+          <input matInput type="url" formControlName="original_url" placeholder="https://example.com/long-url">
+          
+          @if (urlForm.get('original_url')?.invalid && (urlForm.get('original_url')?.dirty || urlForm.get('original_url')?.touched)) {
+            @if (urlForm.get('original_url')?.errors?.['required']) {
+              <mat-error>URL is required</mat-error>
+            }
+            @if (urlForm.get('original_url')?.errors?.['pattern']) {
+              <mat-error>Please enter a valid URL (must start with http:// or https://)</mat-error>
+            }
+          }
+        </mat-form-field>
+        
+        <div class="custom-code-toggle">
+          <mat-slide-toggle (change)="toggleCustomCode()">Use custom short code</mat-slide-toggle>
+        </div>
+        
+        @if (useCustomCode) {
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Custom Short Code</mat-label>
+            <input matInput formControlName="custom_short_code" placeholder="my-custom-link">
+          </mat-form-field>
+        }
+        
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Expiration Date (Optional)</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="expires_at" placeholder="Choose an expiration date">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <div class="privacy-toggle">
+          <mat-slide-toggle formControlName="is_private">Make URL private</mat-slide-toggle>
+          <span class="privacy-hint">Private URLs are only accessible to you</span>
+        </div>
+        
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="urlForm.invalid || (loading$ | async)" class="submit-button">
+            @if (loading$ | async) {
+              <mat-spinner diameter="24"></mat-spinner>
+              <span>Creating...</span>
+            } @else {
+              <span>Create Short URL</span>
+            }
+          </button>
+        </div>
+        
+        @if (error$ | async) {
+          <div class="error-message">
+            <p>Error creating URL. Please try again.</p>
+          </div>
+        }
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

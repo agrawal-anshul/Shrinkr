@@ -15,12 +15,13 @@ import { URLEffects } from './core/store/url/url.effects';
 import { AnalyticsEffects } from './core/store/analytics/analytics.effects';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { errorInterceptor } from './core/interceptors/error.interceptor';
+import { corsInterceptor } from './core/interceptors/cors.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withComponentInputBinding()),
     provideHttpClient(
-      withInterceptors([authInterceptor, errorInterceptor])
+      withInterceptors([corsInterceptor, authInterceptor, errorInterceptor])
     ),
     provideAnimations(),
     provideStore(reducers, { metaReducers }),

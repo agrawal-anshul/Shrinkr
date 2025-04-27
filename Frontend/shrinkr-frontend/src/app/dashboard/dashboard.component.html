@@ -1,1 +1,103 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <a mat-raised-button color="primary" routerLink="/urls/create">
+      <mat-icon>add</mat-icon>
+      Create New URL
+    </a>
+  </div>
+
+  <div class="stats-cards">
+    <mat-card class="stats-card">
+      <mat-card-content>
+        <div class="stats-icon">
+          <mat-icon>link</mat-icon>
+        </div>
+        <div class="stats-info">
+          <h2>{{ totalUrls }}</h2>
+          <p>Total URLs</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stats-card">
+      <mat-card-content>
+        <div class="stats-icon">
+          <mat-icon>touch_app</mat-icon>
+        </div>
+        <div class="stats-info">
+          <h2>{{ totalClicks }}</h2>
+          <p>Total Clicks</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-card class="recent-urls-card">
+    <mat-card-header>
+      <mat-card-title>Recent URLs</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if (loading$ | async) {
+        <div class="loading-container">
+          <mat-spinner diameter="40"></mat-spinner>
+          <p>Loading your URLs...</p>
+        </div>
+      } @else if (error$ | async) {
+        <div class="error-container">
+          <p>Error loading URLs. Please try again later.</p>
+        </div>
+      } @else {
+        @if (urls$ | async; as urls) {
+          @if (urls.length > 0) {
+            <div class="urls-list">
+              @for (url of urls.slice(0, 5); track url.id) {
+                <div class="url-item">
+                  <div class="url-info">
+                    <h3 class="url-title">{{ url.original_url }}</h3>
+                    <p class="url-short">
+                      {{ getShortUrl(url.short_code) }}
+                      <button mat-icon-button (click)="copyToClipboard(getShortUrl(url.short_code))" aria-label="Copy URL">
+                        <mat-icon>content_copy</mat-icon>
+                      </button>
+                    </p>
+                  </div>
+                  <div class="url-stats">
+                    <span class="url-clicks">
+                      <mat-icon>touch_app</mat-icon>
+                      {{ url.click_count || 0 }} clicks
+                    </span>
+                    <a mat-button color="primary" [routerLink]="['/analytics', url.short_code]">
+                      View Analytics
+                    </a>
+                  </div>
+                </div>
+                @if (!$last) {
+                  <mat-divider></mat-divider>
+                }
+              }
+            </div>
+
+            @if (urls.length > 5) {
+              <div class="view-all">
+                <a mat-button routerLink="/urls">View All URLs</a>
+              </div>
+            }
+          } @else {
+            <div class="empty-state">
+              <mat-icon>link_off</mat-icon>
+              <p>You don't have any URLs yet.</p>
+              <a mat-raised-button color="primary" routerLink="/urls/create">Create Your First URL</a>
+            </div>
+          }
+        } @else {
+          <div class="empty-state">
+            <mat-icon>link_off</mat-icon>
+            <p>You don't have any URLs yet.</p>
+            <a mat-raised-button color="primary" routerLink="/urls/create">Create Your First URL</a>
+          </div>
+        }
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

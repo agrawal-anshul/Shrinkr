@@ -556,7 +556,7 @@ async def generate_qr_code(
             box_size=size,
             border=4,
         )
-        qr.add_data(f"{base_url}redirect/{short_code}")
+        qr.add_data(f"{base_url}{short_code}")
         qr.make(fit=True)
 
         # Create image

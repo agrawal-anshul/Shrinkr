@@ -1,0 +1,145 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.actions {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 16px;
+}
+
+.error-card {
+  margin-bottom: 20px;
+  
+  mat-card-content {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    
+    mat-icon {
+      margin-right: 16px;
+      font-size: 24px;
+      height: 24px;
+      width: 24px;
+    }
+    
+    p {
+      margin: 0 16px 0 0;
+      flex-grow: 1;
+    }
+  }
+}
+
+.url-table-container {
+  width: 100%;
+  overflow-x: auto;
+  
+  table {
+    width: 100%;
+    
+    .mat-column-shortUrl {
+      min-width: 200px;
+      max-width: 250px;
+    }
+    
+    .mat-column-originalUrl {
+      min-width: 300px;
+      
+      .original-url {
+        max-width: 400px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+      }
+    }
+    
+    .mat-column-clicks {
+      width: 100px;
+      text-align: center;
+    }
+    
+    .mat-column-createdAt {
+      width: 180px;
+    }
+    
+    .mat-column-actions {
+      width: 60px;
+      text-align: right;
+    }
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+  
+  mat-icon {
+    font-size: 64px;
+    height: 64px;
+    width: 64px;
+    margin-bottom: 16px;
+    color: #757575;
+  }
+  
+  p {
+    margin-bottom: 24px;
+    font-size: 18px;
+    color: #757575;
+  }
+}
+
+.short-url {
+  display: flex;
+  align-items: center;
+  
+  a {
+    margin-right: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #1976d2;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.warn-text {
+  color: #f44336;
+}
+
+mat-paginator {
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .original-url {
+    max-width: 150px;
+  }
+  
+  table {
+    font-size: 13px;
+  }
+  
+  .mat-column-actions {
+    width: 40px;
+  }
+}

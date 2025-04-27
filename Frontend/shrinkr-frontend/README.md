@@ -1,59 +1,177 @@
-# ShrinkrFrontend
+# Shrinkr - URL Shortener
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+Shrinkr is a modern URL shortening application built with Angular and FastAPI. This README covers how to set up and run the frontend application.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- **URL Shortening**: Create shortened URLs with custom settings
+- **Analytics Dashboard**: Track clicks, geographic data, devices, and browsers
+- **QR Code Generation**: Generate and download QR codes for your shortened URLs
+- **User Authentication**: Secure user registration and login
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
 
+## Prerequisites
+
+- Node.js (v14+)
+- npm (v6+)
+- Angular CLI (v17+)
+- FastAPI backend running (Docker container)
+
+## Setup
+
+1. Clone the repository (if you haven't already):
 ```bash
-ng serve
+git clone <repository-url>
+cd Frontend/shrinkr-frontend
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+2. Install dependencies:
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. Ensure the backend API is running:
+Make sure your FastAPI backend is running on `http://localhost:8000`
 
+## Development Server
+
+Run the development server:
 ```bash
-ng generate --help
+npm run start
 ```
 
-## Building
+Navigate to `http://localhost:4200/` in your browser. The application will automatically reload if you change any of the source files.
 
-To build the project run:
+## API Configuration
 
+The application is configured to communicate with a backend API. 
+- For development: `http://localhost:8000/api`
+- For production: Configure in `src/environments/environment.prod.ts`
+
+## Building for Production
+
+To build the project for production:
 ```bash
-ng build
+npm run build -- --configuration production
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Testing
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+Run unit tests:
 ```bash
-ng test
+npm run test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+Run end-to-end tests:
 ```bash
-ng e2e
+npm run e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Troubleshooting
 
-## Additional Resources
+### CORS Issues
+If you experience CORS issues:
+1. Ensure your backend server is properly configured to allow requests from the frontend origin
+2. Check the CORS interceptor in the Angular application
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Authentication Issues
+If you experience authentication problems:
+1. Check that your backend API is running and accessible
+2. Verify that login/register endpoints are responding correctly
+3. Check the browser console for specific error messages
+
+## API Reference
+
+### Authentication API
+- **Register User**
+  - **Endpoint**: `POST /auth/register`
+  - **Request Body**:
+    ```json
+    {
+      "username": "string",
+      "password": "string",
+      "email": "string"
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "access_token": "string"
+    }
+    ```
+
+- **Login User**
+  - **Endpoint**: `POST /auth/login`
+  - **Request Body**:
+    ```json
+    {
+      "username": "string",
+      "password": "string"
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "access_token": "string"
+    }
+    ```
+
+### URL Management API
+- **Create URL**
+  - **Endpoint**: `POST /urls/create`
+  - **Request Body**:
+    ```json
+    {
+      "original_url": "string"
+    }
+    ```
+  - **Response**:
+    ```json
+    {
+      "short_code": "string",
+      "original_url": "string",
+      "click_count": 0,
+      "created_at": "date"
+    }
+    ```
+
+- **List URLs**
+  - **Endpoint**: `GET /urls/list`
+  - **Query Parameters**:
+    - `skip`: number of URLs to skip (default: 0)
+    - `limit`: number of URLs to return (default: 100)
+
+### Analytics API
+- **Get URL Stats**
+  - **Endpoint**: `GET /urls/{shortCode}/stats`
+  - **Response**:
+    ```json
+    {
+      "short_code": "string",
+      "click_count": 0,
+      "created_at": "date",
+      "analytics": [
+        {
+          "date": "date",
+          "clicks": 0
+        }
+      ]
+    }
+    ```
+
+## Frontend Components
+The frontend is built using Angular and includes various components for managing URLs, displaying analytics, and handling user authentication.
+
+## Styling
+The application uses Angular Material for UI components and custom SCSS for styling.
+
+## Deployment
+For deployment instructions, refer to the deployment section of your project.
+
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

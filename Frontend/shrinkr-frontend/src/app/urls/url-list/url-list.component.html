@@ -1,1 +1,86 @@
-<p>url-list works!</p>
+<div class="container">
+  <div class="header">
+    <h1>My URLs</h1>
+    <button mat-raised-button color="primary" (click)="openCreateDialog()">
+      <mat-icon>add</mat-icon> Create New URL
+    </button>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Loading your URLs...</p>
+  </div>
+
+  <!-- Error state -->
+  <div *ngIf="error && !isLoading" class="error-container">
+    <mat-icon color="warn">error</mat-icon>
+    <p>{{ error }}</p>
+    <button mat-raised-button color="primary" (click)="retry()">Try Again</button>
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!isLoading && !error && !dataSource?.length" class="empty-container">
+    <mat-icon>link_off</mat-icon>
+    <p>You haven't created any shortened URLs yet.</p>
+    <button mat-raised-button color="primary" (click)="openCreateDialog()">Create Your First URL</button>
+  </div>
+
+  <!-- URL Table -->
+  <div *ngIf="!isLoading && !error && dataSource?.length" class="table-container">
+    <table mat-table [dataSource]="dataSource" class="url-table">
+      <!-- Short URL Column -->
+      <ng-container matColumnDef="shortUrl">
+        <th mat-header-cell *matHeaderCellDef>Short URL</th>
+        <td mat-cell *matCellDef="let url">{{ getFullShortUrl(url.shortUrl) }}</td>
+      </ng-container>
+
+      <!-- Original URL Column -->
+      <ng-container matColumnDef="originalUrl">
+        <th mat-header-cell *matHeaderCellDef>Original URL</th>
+        <td mat-cell *matCellDef="let url" class="original-url">
+          {{ url.originalUrl }}
+        </td>
+      </ng-container>
+
+      <!-- Clicks Column -->
+      <ng-container matColumnDef="clicks">
+        <th mat-header-cell *matHeaderCellDef>Clicks</th>
+        <td mat-cell *matCellDef="let url">{{ url.clicks }}</td>
+      </ng-container>
+
+      <!-- Created Date Column -->
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef>Created</th>
+        <td mat-cell *matCellDef="let url">{{ formatDate(url.createdAt) }}</td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let url">
+          <button mat-icon-button (click)="copyToClipboard(url.shortUrl)" matTooltip="Copy to clipboard">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+          <a mat-icon-button [routerLink]="['/analytics', url.id]" matTooltip="View Analytics">
+            <mat-icon>analytics</mat-icon>
+          </a>
+          <button mat-icon-button (click)="deleteUrl(url.id)" matTooltip="Delete" color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- Pagination -->
+    <mat-paginator 
+      [length]="totalItems" 
+      [pageSize]="pageSize" 
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>

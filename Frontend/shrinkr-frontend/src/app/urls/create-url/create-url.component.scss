@@ -1,0 +1,82 @@
+.create-url-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.create-url-card {
+  width: 100%;
+  max-width: 600px;
+}
+
+mat-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+mat-card-title {
+  margin-bottom: 8px !important;
+  font-size: 1.5rem;
+}
+
+.url-form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.custom-code-toggle,
+.privacy-toggle {
+  margin-bottom: 16px;
+}
+
+.privacy-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 4px;
+  margin-left: 34px; // Align with toggle text
+}
+
+.form-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button {
+  min-width: 200px;
+  height: 44px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.error-message {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: rgba(244, 67, 54, 0.1);
+  border-radius: 4px;
+  color: #f44336;
+  font-size: 0.9rem;
+  text-align: center;
+  
+  p {
+    margin: 0;
+  }
+}
+
+mat-spinner {
+  display: inline-block;
+  margin-right: 8px;
+}
